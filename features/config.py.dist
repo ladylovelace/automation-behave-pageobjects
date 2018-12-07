@@ -1,0 +1,12 @@
+# PATH_UPLOAD = PATH_PROJ + 'features/upload/'
+
+USER = {
+  'valid': {
+      'email': 'let.rostirola@gmail.com',
+      'pass': 'Hke2Oiqx1wfQjkv',
+  },
+  'invalid': {
+      'email': 'spy@spy.com.br',
+      'pass': 'mudar123',
+  },
+}
