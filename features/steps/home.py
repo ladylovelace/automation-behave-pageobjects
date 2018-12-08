@@ -5,8 +5,10 @@ from features.steps import login
 
 @given(u'the "{user_type}" user is logged in on the homepage')
 def step_impl(context,user_type):
-    login.visit_login(context, user_type)
-    login.login(context, user_type)
+    home = context.browser.contains_content(USER['valid']['username'], 10)
+    if not home:
+            login.visit_login(context, user_type)
+            login.login(context, user_type)
 
 @when(u'user post the tweet "{tweet_message}"')
 def tweet(context, tweet_message):
@@ -21,8 +23,12 @@ def dont_tweet(context):
     assert element.is_enabled() == False
 
 
-
 @then(u'the tweet button should be enabled')
 def dont_tweet(context):
     element = context.browser.find(HomePage.locator_dictionary['submit'])
     assert element.is_enabled() == True
+
+@then(u'the user should be able to tweet')
+def submit_tweet(context):
+    element = context.browser.find(HomePage.locator_dictionary['submit'])
+    element.click()

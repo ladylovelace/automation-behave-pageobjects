@@ -2,8 +2,9 @@
 
 USER = {
   'valid': {
-      'email': 'let.rostirola@gmail.com',
-      'pass': 'Hke2Oiqx1wfQjkv',
+      'email': 'YOUR_EMAIL',
+      'pass': 'YOUR_PASS',
+      'username': '@YOUR_USERNAME'
   },
   'invalid': {
       'email': 'spy@spy.com.br',

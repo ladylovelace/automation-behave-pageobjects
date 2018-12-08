@@ -4,10 +4,10 @@ Feature: Login into twitter
     To login on twitter
     To be able to use the plataform
 
-    # Scenario: Invalid login
-    #     Given "invalid" user navigates to page "landing-page"
-    #     When the "invalid" user logs in
-    #     Then a login error message should display
+    Scenario: Invalid login
+        Given "invalid" user navigates to page "landing-page"
+        When the "invalid" user logs in
+        Then a login error message should display
     
     Scenario: Valid login
         Given "valid" user navigates to page "landing-page"

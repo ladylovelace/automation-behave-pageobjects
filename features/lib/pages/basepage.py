@@ -37,23 +37,12 @@ class BasePage(object):
         url = self.base_url + location
         self.driver.get(url)
 
-    def current_url(self, location=''):
-        """
-        get current pages
-        """
-        return self.driver.current_url
 
     def find(self, selector):
         """
         find a page element in the DOM
         """
         return self.driver.find_element(selector[0], selector[1])
-
-    def find_selector(self, selector):
-        """
-        find a page element in the DOM
-        """
-        return self.driver.find_element_by_css_selector(selector)
 
     def contains_content(self, text, timeout):
         try:
@@ -63,21 +52,5 @@ class BasePage(object):
         except TimeoutException as ex:
             return False
 
-    def contains_element(self, selector, timeout):
-        try:
-            elem = WebDriverWait(self.driver, timeout).until(
-                EC.element_to_be_clickable(selector))
-            return elem
-        except TimeoutException as ex:
-            return False
-
     def screenshot(self, filename):
         self.driver.save_screenshot('./screenshot/' + filename + '.png')
-
-    def move_offset(self, element, x, y):
-        ActionChains(self.driver).move_to_element_with_offset(
-            element, x, y).perform()
-
-    def move_element(self, element):
-        ActionChains(self.driver).move_to_element(
-            element).perform()

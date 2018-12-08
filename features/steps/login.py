@@ -27,6 +27,6 @@ def step_impl(context):
 
 
 @then(u'the user should be redirected to homepage')
-def step_impl(context):
-    message = context.browser.contains_content('@lrostirola', 10)
-    assert message
+def homepage(context):
+    home = context.browser.contains_content(USER['valid']['username'], 10)
+    assert home

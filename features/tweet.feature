@@ -13,3 +13,4 @@ Feature: Tweet
         Given the "valid" user is logged in on the homepage
         When user post the tweet "        We can neither confirm nor deny that this is our first tweet.        - by CIA       #selenium #python #behave #opensanca #devconfpocket"
         Then the tweet button should be enabled
+            And the user should be able to tweet
