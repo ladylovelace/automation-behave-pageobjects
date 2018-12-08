@@ -1,7 +1,9 @@
 from behave import given, when, then
+
 from config import USER
 from features.lib.pages.homepage import HomePage
 from features.steps import login
+
 
 @given(u'the "{user_type}" user is logged in on the homepage')
 def step_impl(context,user_type):
@@ -27,6 +29,7 @@ def dont_tweet(context):
 def dont_tweet(context):
     element = context.browser.find(HomePage.locator_dictionary['submit'])
     assert element.is_enabled() == True
+
 
 @then(u'the user should be able to tweet')
 def submit_tweet(context):

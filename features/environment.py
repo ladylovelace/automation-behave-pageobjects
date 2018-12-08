@@ -1,10 +1,24 @@
 import os
 
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+
 from lib.pages.basepage import BasePage
 
 
 def before_all(context):
-    context.browser = BasePage()
+
+    chrome_options = Options()
+    chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--window-size=1920x1080")
+    chrome_driver = os.getcwd() + '/features/lib/chromedriver'
+
+    driver = webdriver.Chrome(
+        chrome_options=chrome_options, executable_path=chrome_driver)
+    driver.maximize_window()
+    driver.implicitly_wait(10)
+
+    context.browser = BasePage(driver)
 
 
 def after_scenario(context, scenario):

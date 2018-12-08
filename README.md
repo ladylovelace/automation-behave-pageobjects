@@ -50,9 +50,9 @@ Para executar apenas cenários taggeados (@sunny, por exemplo):
 
     (venv)$ behave --tags=sunny
 
-Para executar o sanity (basicamente, checa a 'sanidade' das principais funcionalidades do programa). Dentro desta pasta (features) está também os arquivos de cada feature para regressão:
+Para executar uma feature:
 
-    (venv)$ behave features/sanity.feature
+    (venv)$ behave features/tweet.feature
 ---
 
 ### Headless
