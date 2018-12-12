@@ -2,21 +2,20 @@ from behave import given, when, then
 
 from config import USER
 from features.lib.pages.homepage import HomePage
-from features.steps import login
 
 
 @given(u'the "{user_type}" user is logged in on the homepage')
 def step_impl(context,user_type):
     home = context.browser.contains_content(USER['valid']['username'], 10)
     if not home:
-            login.visit_login(context, user_type)
-            login.login(context, user_type)
+        context.browser.visit('#')
+        context.login.signin(USER[user_type]['email'], USER[user_type]['pass'])
+
 
 @when(u'user post the tweet "{tweet_message}"')
 def tweet(context, tweet_message):
-    element = context.browser.find(HomePage.locator_dictionary['tweet_input'])
-    element.clear()
-    element.send_keys(tweet_message)
+    tweet = context.home.tweet(tweet_message)
+    assert tweet
 
 
 @then(u'the tweet button should be disabled')

@@ -4,23 +4,21 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
-from selenium.webdriver import ActionChains
 
 
 class BasePage(object):
 
 
-    base_url = 'http://twitter.com/'
-
-    def __init__(self, browser):
+    def __init__(self, browser, base_url = 'http://twitter.com/'):
         self.driver = browser
+        self.base_url = base_url
 
 
     def close(self):
         """
         close the webdriver instance
         """
-        # self.driver.quit()
+        self.driver.quit()
 
     def visit(self, location=''):
         """

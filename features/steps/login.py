@@ -10,12 +10,8 @@ def visit_login(context, user_type):
 
 @when(u'the "{user_type}" user logs in')
 def login(context, user_type):
-    username_field = context.browser.find(LoginPage.locator_dictionary['email'])
-    password_field = context.browser.find(LoginPage.locator_dictionary['password'])
-    username_field.send_keys(USER[user_type]['email'])
-    password_field.send_keys(USER[user_type]['pass'])
-    submit_button = context.browser.find(LoginPage.locator_dictionary['submit'])
-    submit_button.click()
+    login = context.login.signin(USER[user_type]['email'], USER[user_type]['pass'])
+    assert login
 
 
 @then(u'a login error message should display')
