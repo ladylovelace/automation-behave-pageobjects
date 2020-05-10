@@ -3,12 +3,12 @@ from selenium.webdriver.common.by import By
 
 class LoginPage(BasePage):
     def __init__(self, context):
-       BasePage.__init__(self, context.browser, base_url='http://twitter.com/')
+       BasePage.__init__(self, context.browser, base_url='https://twitter.com/login')
     
     locator_dictionary = {
     "email" : (By.NAME, 'session[username_or_email]'),
     "password" : (By.NAME, 'session[password]'),
-    "submit" : (By.CSS_SELECTOR, 'input[type="submit"]'),
+    "submit" : (By.CSS_SELECTOR, 'div[data-testid="LoginForm_Login_Button"]'),
     "error_message" : 'The email and password you entered did not match our records. Please double-check and try again.'
     }
 

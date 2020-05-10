@@ -9,7 +9,7 @@ from selenium.webdriver.common.by import By
 class BasePage(object):
 
 
-    def __init__(self, browser, base_url = 'http://twitter.com/'):
+    def __init__(self, browser, base_url = 'https://twitter.com/login'):
         self.driver = browser
         self.base_url = base_url
 
