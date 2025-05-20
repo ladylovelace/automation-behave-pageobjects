@@ -5,7 +5,7 @@ Automation with Python, Behav, Selenium using desing pattern Page Objects
 
 Após clonar o projeto, é necessário acertar o arquivo de configuração. Crie uma cópia do arquivo ```config.py.dist``` com o nome ```config.py``` e altere como precisar.
 
-    $ cp features/config.py{.dist,}
+    cp features/config.py{.dist,}
 
 Cheque se possui o pip3, caso contrário:
 
